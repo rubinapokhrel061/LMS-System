@@ -2,10 +2,14 @@ import express from "express";
 import * as dotenv from "dotenv";
 //database connection
 import "./database/connection.js";
-import User from "./database/models/userModel.js";
+import userRoute from "./routes/userRoute.js";
+
 dotenv.config();
 const app = express();
+app.use(express.json());
+//routes
 
+app.use("/", userRoute);
 app.get("/", (req, res) => {
   res.send("Backend is working");
 });

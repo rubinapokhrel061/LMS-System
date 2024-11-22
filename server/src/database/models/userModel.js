@@ -1,6 +1,6 @@
 //database/models/userModel.js
-import sequelize from "../connection.js"; // Import Sequelize instance
-import { DataTypes } from "sequelize"; // Import DataTypes from Sequelize
+import sequelize from "../connection.js";
+import { DataTypes } from "sequelize";
 
 // Define the User model
 const User = sequelize.define(
@@ -21,9 +21,13 @@ const User = sequelize.define(
       allowNull: false, // Cannot be null
       unique: true, // Email must be unique
     },
-    number: {
-      type: DataTypes.INTEGER,
-      allowNull: false, // Cannot be null
+    // number: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false, // Cannot be null
+    // },
+    role: {
+      type: DataTypes.ENUM("student", "teacher"),
+      defaultValue: "student",
     },
   }
   //   {
