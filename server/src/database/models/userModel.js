@@ -18,13 +18,14 @@ const User = sequelize.define(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false, // Cannot be null
-      unique: true, // Email must be unique
+      allowNull: false,
+      unique: true,
+      message: "Email must be unique",
     },
-    // number: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false, // Cannot be null
-    // },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     role: {
       type: DataTypes.ENUM("student", "teacher"),
       defaultValue: "student",

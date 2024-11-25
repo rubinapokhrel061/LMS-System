@@ -3,12 +3,17 @@ import * as dotenv from "dotenv";
 //database connection
 import "./database/connection.js";
 import userRoute from "./routes/userRoute.js";
-
+import cors from "cors";
 dotenv.config();
 const app = express();
 app.use(express.json());
-//routes
 
+app.use(
+  cors({
+    origin: "*",
+  })
+);
+//routes
 app.use("/", userRoute);
 app.get("/", (req, res) => {
   res.send("Backend is working");

@@ -5,7 +5,7 @@ import Navbar from "@/global/Navbar";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Form = ({ type }) => {
+const Form = ({ type, onSubmit }) => {
   const [userData, setUserData] = useState({
     email: "",
     username: "",
@@ -18,6 +18,10 @@ const Form = ({ type }) => {
       ...userData,
       [name]: value,
     });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(userData);
   };
 
   return (
@@ -36,7 +40,7 @@ const Form = ({ type }) => {
             </h3>
           </header>
 
-          <form autoComplete="off">
+          <form autoComplete="off" onSubmit={handleSubmit}>
             {/* Conditional Fields for Registration */}
             {type === "register" && (
               <>
@@ -52,7 +56,7 @@ const Form = ({ type }) => {
                     label="Username"
                   />
                 </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                   <Label htmlFor="phonenumber">Enter Phone Number:</Label>
                   <Input
                     type="text"
@@ -63,7 +67,7 @@ const Form = ({ type }) => {
                     autoComplete="off"
                     label="Phone Number"
                   />
-                </div>
+                </div> */}
               </>
             )}
 
