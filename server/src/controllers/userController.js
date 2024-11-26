@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 
 class AuthController {
   static async registerUser(req, res) {
-    const { username, email, password } = req.body;
+    const { username, email, password, role } = req.body;
     if (!username) {
       res.status(400).json({
         message: "Please provide UserName..",
@@ -24,10 +24,23 @@ class AuthController {
       });
       return;
     }
+    const [data] = await User.findAll({
+      where: {
+        email: email,
+      },
+    });
+
+    if (data) {
+      res.status(400).json({
+        message: " User already exist with that email",
+      });
+      return;
+    }
     await User.create({
       username,
       email,
       password: bcrypt.hashSync(password, 8),
+      role,
     });
     res.status(200).json({
       message: "User Registered Successfully..",
