@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Form from "./component/Form";
+import Form from "../../components/commonForm/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { Status } from "@/global/Status";
 import { useNavigate } from "react-router-dom";

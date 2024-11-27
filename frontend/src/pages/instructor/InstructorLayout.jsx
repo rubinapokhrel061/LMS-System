@@ -1,8 +1,8 @@
 import { BarChart, Book, LogOut } from "lucide-react";
 import React, { useState } from "react";
-import InstructorDashboard from "../InstructorDashboard";
+import InstructorDashboard from "../../components/instructor-view/dashboard/InstructorDashboard";
 
-import InstructorCourses from "../InstructorCourses ";
+import InstructorCourses from "./InstructorCourses ";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { logout } from "@/store/authSlice";
