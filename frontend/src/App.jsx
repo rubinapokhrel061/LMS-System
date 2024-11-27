@@ -11,6 +11,8 @@ import StudentDashboard from "./pages/student/studentdashboard";
 import InstructorDashboard from "./pages/instructor/InstructorDashboard";
 import ProtectedRoute, { Role } from "./protected/ProtectedRoute";
 import Profile from "./pages/student/profile";
+import InstructorLayout from "./pages/instructor/instructorLayout/InstructorLayout";
+import CreateNewCourse from "./pages/instructor/CreateNewCourse";
 
 const App = () => {
   return (
@@ -61,7 +63,15 @@ const App = () => {
               path="/instructor"
               element={
                 <ProtectedRoute allowedRoles={[Role.Instructor]}>
-                  <InstructorDashboard />
+                  <InstructorLayout />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/instructor/create-new-course"
+              element={
+                <ProtectedRoute allowedRoles={[Role.Instructor]}>
+                  <CreateNewCourse />
                 </ProtectedRoute>
               }
             />
