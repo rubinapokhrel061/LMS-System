@@ -53,7 +53,6 @@ const Form = ({ type, onSubmit }) => {
                     required
                     onChange={handleChange}
                     autoComplete="off"
-                    label="Username"
                   />
                 </div>
                 {/* <div className="mb-4">
@@ -65,7 +64,7 @@ const Form = ({ type, onSubmit }) => {
                     placeholder="9862122600"
                     required
                     autoComplete="off"
-                    label="Phone Number"
+                  
                   />
                 </div> */}
               </>
@@ -80,7 +79,6 @@ const Form = ({ type, onSubmit }) => {
                 placeholder="rubina20@gmail.com"
                 required
                 autoComplete="off"
-                label="Email Address"
               />
             </div>
 
@@ -93,7 +91,6 @@ const Form = ({ type, onSubmit }) => {
                 placeholder="********"
                 required
                 autoComplete="off"
-                label="Password"
               />
             </div>
 

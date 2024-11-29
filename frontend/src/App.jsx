@@ -8,7 +8,6 @@ import store from "./store/store";
 import { Toaster } from "react-hot-toast";
 import Unauthorized from "./pages/Unauthorized";
 import StudentDashboard from "./pages/student/studentdashboard";
-import InstructorDashboard from "./components/instructor-view/dashboard/InstructorDashboard";
 import ProtectedRoute, { Role } from "./protected/ProtectedRoute";
 import Profile from "./pages/student/profile";
 import InstructorLayout from "./pages/instructor/InstructorLayout";
@@ -34,7 +33,6 @@ const App = () => {
               path="/register"
               element={
                 <ProtectedRoute allowedRoles={[]}>
-                  {" "}
                   {/* No roles allowed for register page */}
                   <Register />
                 </ProtectedRoute>
