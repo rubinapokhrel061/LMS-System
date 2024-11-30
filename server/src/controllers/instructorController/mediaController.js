@@ -1,3 +1,5 @@
+//controllers/instruvtorController/mediaController.js
+
 import {
   deleteMediaFromCloudinary,
   uploadMediaToCloudinary,

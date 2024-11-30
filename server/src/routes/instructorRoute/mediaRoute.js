@@ -1,3 +1,4 @@
+//routes/instructorRoute/mediaRoute.js
 import express from "express";
 import multer from "multer";
 import mediaController from "../../controllers/instructorController/mediaController.js";
