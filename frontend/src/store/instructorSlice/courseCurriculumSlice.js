@@ -1,3 +1,4 @@
+//store/instructorSlice/courseCurriculumSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state structure

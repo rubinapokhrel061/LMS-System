@@ -1,3 +1,4 @@
+//store/instructorSlice/courseSettingSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state for the course form

@@ -12,6 +12,7 @@ import {
   setVideoUrl,
   setIsUploading,
 } from "@/store/instructorSlice/courseCurriculumSlice";
+import VideoPlayer from "@/components/media/VideoPlayer";
 
 const CourseCurriculum = () => {
   const dispatch = useDispatch();
@@ -103,15 +104,23 @@ const CourseCurriculum = () => {
                     </div>
                   )
                 ) : course.videoUrl ? (
-                  <div className="text-green-500 text-xs">Video Uploaded</div>
-                ) : null}
-
-                <Input
-                  type="file"
-                  accept="video/*"
-                  className="mb-4"
-                  onChange={(event) => handleSingleLectureUpload(event, index)}
-                />
+                  <div className="flex flex-col gap-3">
+                    <VideoPlayer url={course.videoUrl} />
+                    <div className="flex justify-between">
+                      <Button>Replace Video</Button>
+                      <Button variant="destructive">Delete</Button>
+                    </div>
+                  </div>
+                ) : (
+                  <Input
+                    type="file"
+                    accept="video/*"
+                    className="mb-4"
+                    onChange={(event) =>
+                      handleSingleLectureUpload(event, index)
+                    }
+                  />
+                )}
               </div>
             </div>
           ))}
