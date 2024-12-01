@@ -15,18 +15,6 @@ import { Textarea } from "@/components/ui/textarea";
 import React from "react";
 
 const CourseLandingPage = () => {
-  // const courseLandingInitialFormData = {
-  //   title: "",
-  //   category: "",
-  //   level: "",
-  //   primaryLanguage: "",
-  //   subtitle: "",
-  //   description: "",
-  //   pricing: "",
-  //   objectives: "",
-  //   welcomeMessage: "",
-  // };
-
   return (
     <Card className="shadow-sm shadow-green-300 border-none">
       <CardHeader>
