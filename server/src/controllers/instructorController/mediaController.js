@@ -3,7 +3,7 @@
 import {
   deleteMediaFromCloudinary,
   uploadMediaToCloudinary,
-} from "../../../helpers/cloudinary.js";
+} from "../../helpers/cloudinary.js";
 
 class mediaController {
   static async uploadMedia(req, res) {

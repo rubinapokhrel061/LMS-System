@@ -55,7 +55,7 @@ const InstructorCourses = () => {
             </Table>
           </div>
         </CardContent>
-      </Card>{" "}
+      </Card>
     </>
   );
 };
