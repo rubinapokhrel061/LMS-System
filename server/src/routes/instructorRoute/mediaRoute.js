@@ -9,5 +9,5 @@ const upload = multer({ dest: "uploads/" });
 router
   .route("/upload")
   .post(upload.single("file"), errorHandler(mediaController.uploadMedia));
-router.route("/delete/:id").post(errorHandler(mediaController.deleteMedia));
+router.route("/delete/:id").delete(errorHandler(mediaController.deleteMedia));
 export default router;

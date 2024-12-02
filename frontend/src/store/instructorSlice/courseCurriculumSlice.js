@@ -50,16 +50,26 @@ const courseCurriculumSlice = createSlice({
         state.courseCurriculum[index].videoUrl = videoUrl;
         state.courseCurriculum[index].public_id = public_id;
       }
-      state.uploadingIndex = null; // Reset uploading index after the upload is complete
+      state.uploadingIndex = null;
     },
 
     setIsUploading(state, action) {
       state.isUploading = action.payload.isUploading;
       if (action.payload.isUploading) {
-        state.uploadingIndex = action.payload.index; // Set the index of the lecture being uploaded
+        state.uploadingIndex = action.payload.index;
       } else {
-        state.uploadingIndex = null; // Reset uploading index when not uploading
+        state.uploadingIndex = null;
       }
+    },
+    replaceVideoUrl: (state, action) => {
+      const { index, videoUrl, public_id } = action.payload;
+      state.courseCurriculum[index].videoUrl = videoUrl;
+      state.courseCurriculum[index].public_id = public_id;
+    },
+    deleteVideo: (state, action) => {
+      const { index } = action.payload;
+      state.courseCurriculum[index].videoUrl = "";
+      state.courseCurriculum[index].public_id = "";
     },
   },
 });
@@ -70,6 +80,8 @@ export const {
   updateFreePreview,
   setVideoUrl,
   setIsUploading,
+  replaceVideoUrl,
+  deleteVideo,
 } = courseCurriculumSlice.actions;
 
 export default courseCurriculumSlice.reducer;
