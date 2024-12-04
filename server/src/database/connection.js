@@ -13,7 +13,7 @@ const sequelize = new Sequelize(
 
     dialect: "mysql",
 
-    logging: console.log, // Log SQL queries for debugging
+    logging: console.log,
   }
 );
 // // Sync Sequelize models with the database (do not drop existing tables)

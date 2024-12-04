@@ -31,10 +31,10 @@ const User = sequelize.define(
       defaultValue: "student",
       allowNull: false,
     },
+  },
+  {
+    timestamps: true,
   }
-  //   {
-  //     tableName: "usernames", // Explicitly define the table name
-  //   }
 );
 
 export default User;
