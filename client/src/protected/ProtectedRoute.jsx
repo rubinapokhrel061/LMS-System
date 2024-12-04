@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
         return <Navigate to="/student" />;
       }
       if (userRole === Role.Instructor) {
-        return <Navigate to="/instructor" />;
+        return <Navigate to="/instructor/dashboard" />;
       }
     }
   }

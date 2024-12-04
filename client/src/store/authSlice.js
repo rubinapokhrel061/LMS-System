@@ -48,7 +48,7 @@ export function register(data) {
     try {
       const response = await API.post("register", data);
       if (response.status === 200) {
-        dispatch(setUser(response.data.user)); // Store the user data from response
+        dispatch(setUser(response.data.user));
         dispatch(setStatus(Status.SUCCESS));
         toast.success(response?.data?.message);
       } else {
@@ -68,16 +68,17 @@ export function login(data) {
       const response = await API.post("login", data);
       if (response.status === 200) {
         const user = response?.data?.user;
-        const token = response?.data?.data; // Assuming 'data' contains the token
+        const token = response?.data?.data;
 
         // Save the token and role in localStorage
         localStorage.setItem("token", token);
         localStorage.setItem("userRole", user?.role);
+        localStorage.setItem("username", user.username);
+        localStorage.setItem("userid", user.id);
 
-        // Update the Redux state with user data, token, and role
-        dispatch(setUser(user)); // Store the entire user object
-        dispatch(setToken(token)); // Store token
-        dispatch(setRole(user?.role)); // Store role
+        dispatch(setUser(user));
+        dispatch(setToken(token));
+        dispatch(setRole(user?.role));
 
         dispatch(setStatus(Status.SUCCESS));
         toast.success(response?.data?.message);

@@ -13,28 +13,49 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateFormField } from "@/store/instructorSlice/courseSettingSlice"; // Import updateFormField action
 
 const CourseLandingPage = () => {
+  const { formData } = useSelector((state) => state.courseLanding);
+  const dispatch = useDispatch();
+
+  // Handle input changes and update the Redux state
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    dispatch(updateFormField({ field: name, value }));
+  };
+
+  // Handle select changes separately
+  const handleSelectChange = (field) => (value) => {
+    dispatch(updateFormField({ field, value }));
+  };
+
   return (
     <Card className="shadow-sm shadow-green-300 border-none">
       <CardHeader>
-        <CardTitle>Course Landing page</CardTitle>
+        <CardTitle>Course Landing Page</CardTitle>
       </CardHeader>
       <CardContent>
         <form>
-          <div className="mb-4 ">
+          <div className="mb-4">
             <Label htmlFor="title">Title:</Label>
             <Input
               type="text"
               name="title"
-              // onChange={handleChange}
+              value={formData.title}
+              onChange={handleChange}
               placeholder="Enter course title"
               required
             />
           </div>
           <div className="mb-4">
             <Label htmlFor="category">Category:</Label>
-            <Select type="text" name="category">
+            <Select
+              name="category"
+              value={formData.category}
+              onValueChange={handleSelectChange("category")} // use onValueChange for Select
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a Category" />
               </SelectTrigger>
@@ -56,7 +77,11 @@ const CourseLandingPage = () => {
           </div>
           <div className="mb-4">
             <Label htmlFor="level">Level:</Label>
-            <Select type="text" name="level">
+            <Select
+              name="level"
+              value={formData.level}
+              onValueChange={handleSelectChange("level")} // use onValueChange for Select
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select Level" />
               </SelectTrigger>
@@ -71,7 +96,11 @@ const CourseLandingPage = () => {
           </div>
           <div className="mb-4">
             <Label htmlFor="primaryLanguage">Primary Language:</Label>
-            <Select type="text" name="primaryLanguage">
+            <Select
+              name="primaryLanguage"
+              value={formData.primaryLanguage}
+              onValueChange={handleSelectChange("primaryLanguage")} // use onValueChange for Select
+            >
               <SelectTrigger>
                 <SelectValue placeholder="Select a Primary Language" />
               </SelectTrigger>
@@ -83,54 +112,55 @@ const CourseLandingPage = () => {
               </SelectContent>
             </Select>
           </div>
-          <div className="mb-4 ">
+          <div className="mb-4">
             <Label htmlFor="subtitle">Subtitle:</Label>
             <Input
               type="text"
               name="subtitle"
-              // onChange={handleChange}
+              value={formData.subtitle}
+              onChange={handleChange}
               placeholder="Enter course subtitle"
               required
             />
           </div>
-          <div className="mb-4 ">
-            <Label htmlFor="price">Price:</Label>
+          <div className="mb-4">
+            <Label htmlFor="pricing">Price:</Label>
             <Input
               type="number"
-              name="price"
-              // onChange={handleChange}
+              name="pricing"
+              value={formData.pricing}
+              onChange={handleChange}
               placeholder="Enter course price"
               required
             />
           </div>
-          <div className="mb-4 ">
+          <div className="mb-4">
             <Label htmlFor="description">Description:</Label>
             <Textarea
-              type="text"
               name="description"
-              // onChange={handleChange}
+              value={formData.description}
+              onChange={handleChange}
               placeholder="Enter course description"
               required
             />
           </div>
-
-          <div className="mb-4 ">
+          <div className="mb-4">
             <Label htmlFor="objectives">Objectives:</Label>
             <Textarea
-              type="text"
               name="objectives"
-              // onChange={handleChange}
+              value={formData.objectives}
+              onChange={handleChange}
               placeholder="Enter course objectives"
               required
             />
           </div>
-          <div className="mb-4 ">
-            <Label htmlFor="welcomeMessage">WelcomeMessage:</Label>
+          <div className="mb-4">
+            <Label htmlFor="welcomeMessage">Welcome Message:</Label>
             <Textarea
-              type="text"
               name="welcomeMessage"
-              // onChange={handleChange}
-              placeholder="Welcome message for Students"
+              value={formData.welcomeMessage}
+              onChange={handleChange}
+              placeholder="Welcome message for students"
               required
             />
           </div>

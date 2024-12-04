@@ -1,3 +1,4 @@
+import InstructorLayout from "@/components/instructor-view/dashboard/InstructorLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -15,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 const InstructorCourses = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <InstructorLayout>
       <Card>
         <CardHeader className="flex justify-between flex-row items-center">
           <CardTitle className="text-2xl font-bold">All Courses</CardTitle>
@@ -56,7 +57,7 @@ const InstructorCourses = () => {
           </div>
         </CardContent>
       </Card>{" "}
-    </>
+    </InstructorLayout>
   );
 };
 

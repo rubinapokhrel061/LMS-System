@@ -10,8 +10,10 @@ import Unauthorized from "./pages/Unauthorized";
 import StudentDashboard from "./pages/student/studentdashboard";
 import ProtectedRoute, { Role } from "./protected/ProtectedRoute";
 import Profile from "./pages/student/profile";
-import InstructorLayout from "./pages/instructor/InstructorLayout";
+import InstructorLayout from "./components/instructor-view/dashboard/InstructorLayout";
 import CreateNewCourse from "./pages/instructor/CreateNewCourse";
+import InstructorCourses from "./pages/instructor/InstructorCourses ";
+import InstructorDashboard from "./pages/instructor/InstructorDashboard ";
 
 const App = () => {
   return (
@@ -58,10 +60,18 @@ const App = () => {
 
             {/* Protected Route for Instructor */}
             <Route
-              path="/instructor"
+              path="/instructor/dashboard"
               element={
                 <ProtectedRoute allowedRoles={[Role.Instructor]}>
-                  <InstructorLayout />
+                  <InstructorDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/instructor/courses"
+              element={
+                <ProtectedRoute allowedRoles={[Role.Instructor]}>
+                  <InstructorCourses />
                 </ProtectedRoute>
               }
             />

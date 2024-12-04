@@ -23,26 +23,26 @@ export const createCourse = async (req, res) => {
       curriculum,
       isPublished,
     } = req.body;
-    if (
-      !instructorId ||
-      !instructorName ||
-      !date ||
-      !title ||
-      !category ||
-      !level ||
-      !primaryLanguage ||
-      !subtitle ||
-      !description ||
-      !image ||
-      !welcomeMessage ||
-      !pricing ||
-      !objectives ||
-      !isPublished
-    ) {
-      return res.status(400).json({
-        message: "Please provide all Course datails",
-      });
-    }
+    // if (
+    //   !instructorId ||
+    //   !instructorName ||
+    //   !title ||
+    //   !category ||
+    //   !level ||
+    //   !primaryLanguage ||
+    //   !subtitle ||
+    //   !description ||
+    //   !image ||
+    //   !welcomeMessage ||
+    //   !pricing ||
+    //   !objectives ||
+    //   !isPublished
+    // ) {
+    //   return res.status(400).json({
+    //     message: "Please provide all Course datails",
+    //   });
+    // }
+
     // Create a new course
     const course = await Course.create({
       instructorId,

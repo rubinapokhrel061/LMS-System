@@ -23,7 +23,7 @@ const CourseSettings = () => {
 
         const response = await APIForMedia.post("media/upload", imageData);
         if (response.data.success) {
-          dispatch(setImage(response.data.data.url)); // Update the image in Redux store
+          dispatch(setImage(response.data.data.url));
         }
       } catch (error) {
         console.error("Error uploading image:", error);
@@ -36,27 +36,27 @@ const CourseSettings = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Course Setting</CardTitle>
+        <CardTitle>Course Setting:</CardTitle>
       </CardHeader>
       <CardContent>
         {formData.image ? (
           <img src={formData.image} alt="Uploaded course image" />
         ) : (
           <div className="flex flex-col gap-3">
-            <Label>Upload Course Image:</Label>
             <div>
               {formData.image ? (
-                <div className="text-green-500 text-xs">Image Uploaded</div>
+                <Label className="text-green-500 text-xs">Image Uploaded</Label>
               ) : isUploading ? (
-                <div className="text-blue-500 text-xs">Uploading image...</div>
+                <Label className="text-blue-500 text-xs">
+                  Uploading image...
+                </Label>
               ) : (
-                <div className="text-red-500 text-xs">
+                <Label className="text-red-500 text-xs">
                   Please select an image to upload
-                </div>
+                </Label>
               )}
               <Input
                 onChange={handleImageUploadChange}
-                className="bg-green-300"
                 type="file"
                 accept="image/*"
               />

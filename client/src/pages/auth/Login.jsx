@@ -24,7 +24,7 @@ const Login = () => {
       if (role === Role.Student) {
         navigate("/student");
       } else if (role === Role.Instructor) {
-        navigate("/instructor");
+        navigate("/instructor/dashboard");
       }
     }
   }, [status, token, role, navigate, dispatch]);
